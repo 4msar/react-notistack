@@ -1,0 +1,197 @@
+$snack-max-width: 350px !default;
+$snack-padding-x: 0.75rem !default;
+$snack-padding-y: 0.5rem !default;
+$snack-font-size: 0.875rem !default;
+$snack-color: null !default;
+$snack-background-color: #fff !default;
+$snack-border-width: 1px !default;
+$snack-border-color: rgba(0, 0, 0, 0.1) !default;
+$snack-border-radius: 4px !default;
+$internal-border-radius: $snack-border-radius - $snack-border-width !default;
+$snack-box-shadow: 0 0.5rem 1rem rgba(#222, 0.15) !default;
+$snack-spacing: 1.5rem / 2 !default;
+
+$snack-header-color: #4c535a !default;
+$snack-header-background-color: rgba(#fff, 0.85) !default;
+$snack-header-border-color: rgba(0, 0, 0, 0.05) !default;
+
+.__snackbar_container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+
+    width: max-content;
+    max-width: 100%;
+    pointer-events: none;
+
+    > :not(:last-child) {
+        margin-bottom: $snack-spacing;
+    }
+
+    .snackbar {
+        margin-bottom: 10px;
+    }
+    .clickable {
+        cursor: pointer;
+    }
+    button.close {
+        opacity: 0.8;
+        color: #fefefe;
+        span {
+            color: #fefefe;
+        }
+    }
+
+    &.anchorOriginTopCenter {
+        top: 10px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    &.anchorOriginBottomCenter {
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    &.anchorOriginTopRight {
+        top: 10px;
+        right: 10px;
+    }
+    &.anchorOriginBottomRight {
+        bottom: 10px;
+        right: 10px;
+    }
+    &.anchorOriginTopLeft {
+        top: 10px;
+        left: 10px;
+    }
+    &.anchorOriginBottomLeft {
+        bottom: 10px;
+        left: 10px;
+    }
+
+    .snack {
+        width: $snack-max-width;
+        max-width: 100%;
+        font-size: $snack-font-size;
+        color: $snack-color;
+        pointer-events: auto;
+        background-color: $snack-background-color;
+        background-clip: padding-box;
+        border: $snack-border-width solid $snack-border-color;
+        box-shadow: $snack-box-shadow;
+        border-radius: $snack-border-radius;
+        transition: all 0.3s ease-in-out;
+
+        &:not(.showing):not(.show) {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        &.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        &.no-body {
+            .snack-header {
+                border-bottom: none;
+                border-radius: $internal-border-radius;
+            }
+        }
+        .snack-header {
+            display: flex;
+            align-items: center;
+            padding: $snack-padding-y $snack-padding-x;
+            color: $snack-header-color;
+            background-color: $snack-header-background-color;
+            background-clip: padding-box;
+            border-bottom: $snack-border-width solid $snack-header-border-color;
+            border-top-left-radius: $internal-border-radius;
+            border-top-right-radius: $internal-border-radius;
+
+            svg,
+            img.icon {
+                width: 20px;
+                height: 20px;
+                border-radius: 4px;
+                margin-right: 8px;
+            }
+            strong {
+                margin-right: auto;
+            }
+            .close-btn {
+                margin-right: $snack-padding-x / -2;
+                margin-left: $snack-padding-x;
+                float: right;
+                font-size: 1.5rem;
+                font-weight: 500;
+                line-height: 1;
+                color: #000;
+                text-shadow: 0 1px 0 #fff;
+                opacity: 0.5;
+                padding: 0;
+                cursor: pointer;
+                background: 0 0;
+                border: 0;
+                -webkit-appearance: none;
+                outline: none;
+
+                &:focus,
+                &:hover {
+                    color: #000;
+                    text-decoration: none;
+                    cursor: pointer;
+                    opacity: 0.75;
+                }
+            }
+        }
+
+        .snack-body {
+            padding: $snack-padding-x; // apply to both vertical and horizontal
+            word-wrap: break-word;
+        }
+    }
+
+    .snack {
+        &.snack-default {
+            background-color: #fff;
+            color: #222;
+            svg {
+                color: #fff;
+            }
+        }
+        &.snack-success {
+            background-color: #43a047; // green
+            color: #fff;
+            svg {
+                color: #43a047;
+            }
+        }
+        &.snack-error {
+            background-color: #d32f2f; // dark red
+            color: #fff;
+            svg {
+                color: #d32f2f;
+            }
+        }
+        &.snack-info {
+            background-color: #2196f3; // nice blue
+            color: #fff;
+            svg {
+                color: #2196f3;
+            }
+        }
+        &.snack-warning {
+            background-color: #ff9800; // amber
+            color: #fff;
+            svg {
+                color: #ff9800;
+            }
+        }
+    }
+}

@@ -4,7 +4,7 @@
   "description": "A beautiful standalone snackbar for react",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "start": "webpack-dev-server --open development",
     "build": "webpack --mode production",
     "deploy": "webpack --config publish.config.js --mode production && npm publish"

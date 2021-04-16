@@ -1,6 +1,6 @@
 {
   "name": "react-notistack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A beautiful standalone snackbar for react",
   "main": "dist/index.js",
   "scripts": {
@@ -23,7 +23,8 @@
     "babel-loader": "^8.0.6",
     "css-loader": "^5.2.1",
     "html-webpack-plugin": "^3.2.0",
-    "node-sass": "^5.0.0",
+    "mini-css-extract-plugin": "^1.4.1",
+    "node-sass": "^4.14.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "sass": "^1.32.8",

@@ -8,16 +8,25 @@ module.exports = {
         libraryTarget: 'commonjs2'
     },
     module: {
-        rules: [{
-            test: /\.(js|jsx)$/,
-            use: "babel-loader",
-            exclude: /node_modules/
-        }]
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                use: "babel-loader",
+                exclude: /node_modules/
+            }, {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader"
+                ],
+            },
+        ]
     },
     resolve: {
-        extensions: [".js", ".jsx"]
+        extensions: [".js", ".jsx", "scss", "css"]
     },
     externals: {
-        'react': 'commonjs react' 
+        'react': 'commonjs react'
     }
 };

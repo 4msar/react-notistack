@@ -19,12 +19,18 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.s(a|c)ss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
-            }
-        ]
+                test: /\.s[ac]ss$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader"
+                ],
+            },
+        ],
     },
-    plugins: [htmlWebpackPlugin],
+    plugins: [
+        htmlWebpackPlugin
+    ],
     resolve: {
         extensions: [".js", ".jsx", ".scss", ".css"]
     },

@@ -71,7 +71,7 @@ const MyButton = () => {
 ```
 
 ### Online demo
-[codesandbox](https://codesandbox.io/s/github/4msar/react-notistack/tree/master/example/src?hidenavigation=1&module=Example.js) </br>
+[codesandbox](https://codesandbox.io/s/github/4msar/react-notistack/tree/main/example/src?hidenavigation=1&module=Example.js) </br>
 
 ### Credits
 This snackbar idea is comes from [Notistack](https://iamhosseindhv.com/notistack) by Hossein Dehnokhalaji which is depend on material-ui.  

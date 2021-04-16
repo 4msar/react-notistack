@@ -24,7 +24,7 @@ function Example() {
             }
         };
         setConfig(newConfig);
-        enqueueSnackbar(messages[Math.round(Math.random() * 5)], newConfig)
+        enqueueSnackbar(messages[Math.round(Math.random() * 4)], newConfig)
     }
     return (
         <div style={{

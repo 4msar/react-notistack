@@ -71,6 +71,8 @@ const MyButton = () => {
 ```
 
 ### Online demo
+Demo [here](http://msar.me/react-notistack/example/dist/) 
+
 [codesandbox](https://codesandbox.io/s/github/4msar/react-notistack/tree/main/example/src?hidenavigation=1&module=Example.js) </br>
 
 ### Credits

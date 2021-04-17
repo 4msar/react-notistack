@@ -26,7 +26,10 @@ function Example() {
 
     const handleClick = () => {
         const { title, ...options } = config
-        enqueueSnackbar(isEmpty(title) ? "Default title" : title, options)
+        enqueueSnackbar(isEmpty(title) ? "Default title" : title, {
+            ...options,
+            hide: autoHide ? hide : null
+        })
     }
 
     const handleChange = (name, value) => {

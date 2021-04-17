@@ -1,46 +1,90 @@
 import React, { useState } from 'react';
 import { useSnackbar } from '../../src'
+import { capitalise, isEmpty } from '../../src/helpers';
+import './style.scss';
 
-const messages = ['Sample notification.', 'Example of Toast.', 'Snackbar is awesome', 'Alert for web', 'Welcome to JS.'];
+
 const variants = ['default', 'success', 'error', 'info', 'warning'];
-const body = ['This is the snackbar body!', null];
-const hide = [Math.round(Math.random() * (10000 - 3000) + 3000), null];
 
 const vertical = ['top', 'bottom']
 const horizontal = ['center', 'right', 'left']
 
 function Example() {
     const { enqueueSnackbar } = useSnackbar()
-    const [config, setConfig] = useState()
+    const [config, setConfig] = useState({
+        title: "Snackbar title",
+        body: "Message body",
+        subTitle: "11 min ago",
+        variant: "info",
+        hide: 5000,
+        autoHide: true,
+        anchorOrigin: {
+            vertical: "bottom",
+            horizontal: "right",
+        }
+    })
 
     const handleClick = () => {
-        const newConfig = {
-            body: body[Math.round(Math.random() * 1)],
-            variant: variants[Math.round(Math.random() * 4)],
-            hide: hide[Math.round(Math.random() * 1)],
-            anchorOrigin: {
-                vertical: vertical[Math.round(Math.random() * 1)],
-                horizontal: horizontal[Math.round(Math.random() * 2)],
-            }
-        };
-        setConfig(newConfig);
-        enqueueSnackbar(messages[Math.round(Math.random() * 4)], newConfig)
+        const { title, ...options } = config
+        enqueueSnackbar(isEmpty(title) ? "Default title" : title, options)
     }
+
+    const handleChange = (name, value) => {
+        let anchorOrigin = config.anchorOrigin;
+        if (['vertical', 'horizontal'].includes(name)) {
+            anchorOrigin = {
+                ...anchorOrigin,
+                [name]: value
+            }
+        }
+        setConfig(existing => ({
+            ...existing,
+            [name]: value,
+            anchorOrigin
+        }))
+    }
+
     return (
-        <div style={{
-            display: 'grid',
-            placeContent: 'center',
-            height: '100vh'
-        }}>
+        <div className="example">
+            <h1>React Snackbar</h1>
+            <div className="flex">
+                <div className="form-group">
+                    <label htmlFor="title">Title</label>
+                    <input type="text" id="title" value={config.title} onChange={(event) => handleChange('title', event.target.value)} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="sub-title">Sub Title</label>
+                    <input type="text" id="sub-title" value={config.subTitle} onChange={(event) => handleChange('subTitle', event.target.value)} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="body">Body</label>
+                    <input type="text" id="body" value={config.body} onChange={(event) => handleChange('body', event.target.value)} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="variant">Variant</label>
+                    <select id="variant" value={config.variant} onChange={(event) => handleChange('variant', event.target.value)}>
+                        {variants.map(item => <option key={item} value={item}>{capitalise(item)}</option>)}
+                    </select>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="vertical">Vertical Position</label>
+                    <select id="vertical" value={config.anchorOrigin.vertical} onChange={(event) => handleChange('vertical', event.target.value)}>
+                        {vertical.map(item => <option key={item} value={item}>{capitalise(item)}</option>)}
+                    </select>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="horizontal">Horizontal Position</label>
+                    <select id="horizontal" value={config.anchorOrigin.horizontal} onChange={(event) => handleChange('horizontal', event.target.value)}>
+                        {horizontal.map(item => <option key={item} value={item}>{capitalise(item)}</option>)}
+                    </select>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="hide">Hide <input type="checkbox" checked={config.autoHide} value={true} onChange={() => handleChange('autoHide', !config.autoHide)} /></label>
+                    <input type="number" step={1000} id="hide" value={config.hide} onChange={(event) => handleChange('hide', event.target.value)} />
+                </div>
+            </div>
             <div className="action">
-                <button style={{
-                    border: 'none',
-                    padding: 10,
-                    backgroundColor: '#4c535a',
-                    border: 0,
-                    color: '#fff',
-                    borderRadius: 5
-                }} onClick={handleClick}>Show Toast</button>
+                <button className="show-btn" onClick={handleClick}>Show Toast</button>
             </div>
         </div>
     );

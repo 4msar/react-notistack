@@ -18,7 +18,7 @@ yarn add react-notistack
 
 ### How to use
 
-**1:** Wrap your app inside a `SnackbarProvider` component: (see [docs](https://iamhosseindhv.com/notistack/api) for a full list of available props)
+**1:** Wrap your app inside a `SnackbarProvider` component: (see [docs](#api) for a full list of available props)
 <br />
 **Note:** If you're using material-ui `ThemeProvider`, make sure `SnackbarProvider` is a child of it.
 ```jsx
@@ -73,7 +73,10 @@ const MyButton = () => {
 ### Online demo
 Demo [here](http://msar.me/react-notistack/example/dist/) 
 
-[codesandbox](https://codesandbox.io/s/github/4msar/react-notistack/tree/main/example/src?hidenavigation=1&module=Example.js) </br>
+[codesandbox](https://codesandbox.io/s/github/4msar/react-notistack/tree/main/example/src?hidenavigation=1&module=Example.js)
+
+### API
+Will be added soon.
 
 ### Credits
 This snackbar idea is comes from [Notistack](https://iamhosseindhv.com/notistack) by Hossein Dehnokhalaji which is depend on material-ui.  

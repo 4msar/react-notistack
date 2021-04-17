@@ -69,9 +69,9 @@ class SnackbarProvider extends Component {
         if (this.state.snacks.length >= maxSnack) {
             this.setState(state => {
                 const snacks = [...state.snacks]
-                snacks.shift()
+                snacks.pop()
                 return {
-                    snacks: snacks.concat(snack)
+                    snacks: [snack].concat(snacks)
                 }
             })
         } else {

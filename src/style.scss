@@ -12,8 +12,7 @@ $snack-box-shadow: 0 0.5rem 1rem rgba(#222, 0.15) !default;
 $snack-spacing: 1.5rem / 2 !default;
 
 $snack-header-color: #4c535a !default;
-$snack-header-background-color: rgba(#fff, 0.85) !default;
-$snack-header-border-color: rgba(0, 0, 0, 0.05) !default;
+$snack-header-background-color: rgba(#fff, 0.5) !default;
 
 .__snackbar_container {
     position: fixed;
@@ -110,7 +109,7 @@ $snack-header-border-color: rgba(0, 0, 0, 0.05) !default;
             color: $snack-header-color;
             background-color: $snack-header-background-color;
             background-clip: padding-box;
-            border-bottom: $snack-border-width solid $snack-header-border-color;
+            border-bottom: $snack-border-width solid $snack-border-color;
             border-top-left-radius: $internal-border-radius;
             border-top-right-radius: $internal-border-radius;
 

@@ -76,7 +76,7 @@ class SnackbarProvider extends Component {
             })
         } else {
             this.setState(state => ({
-                snacks: [...state.snacks, snack]
+                snacks: [snack].concat(state.snacks)
             }))
         }
         return id;

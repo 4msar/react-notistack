@@ -42,7 +42,7 @@ function SnackbarItem({ snack, onClose }) {
     }, [open, snack])
 
     useEffect(() => {
-        if (autoHideDuration) {
+        if (autoHideDuration > 0) {
             setTimer(new Timer(() => {
                 handleClose()
             }, autoHideDuration));

@@ -18,6 +18,7 @@ function Example() {
         variant: "info",
         hide: 5000,
         autoHide: true,
+        preventDuplicate: false,
         anchorOrigin: {
             vertical: "bottom",
             horizontal: "right",
@@ -84,6 +85,9 @@ function Example() {
                 <div className="form-group">
                     <label htmlFor="hide">Hide <input type="checkbox" checked={config.autoHide} value={true} onChange={() => handleChange('autoHide', !config.autoHide)} /></label>
                     <input type="number" step={1000} id="hide" value={config.hide} onChange={(event) => handleChange('hide', event.target.value)} />
+                </div>
+                <div className="form-group" style={{ justifyContent: 'center' }}>
+                    <label htmlFor="preventDuplicate"><input id="preventDuplicate" type="checkbox" checked={config.preventDuplicate} value={true} onChange={() => handleChange('preventDuplicate', !config.preventDuplicate)} /> <span style={{ marginLeft: 10 }}>Prevent Duplicate</span> </label>
                 </div>
             </div>
             <div className="action">

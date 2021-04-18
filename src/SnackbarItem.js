@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Timer } from './helpers';
-import * as icons from './icons';
+import icons from './icons';
 
 function SnackbarItem({ snack, onClose }) {
     const itemRef = useRef();
@@ -48,7 +48,7 @@ function SnackbarItem({ snack, onClose }) {
         return () => toggleShow(false)
     }, [open, snack])
 
-    const Icon = () => icons[variant] ?? <img src={"/favicon.ico"} className="icon" alt="Icon" />;
+    const Icon = () => icons[variant] || <img src={"/favicon.ico"} className="icon" alt="Icon" />;
 
     const snackbarClassName = ['snack', 'fade-in', `snack-${variant || 'default'}`];
     if (clickable) { snackbarClassName.push('clickable') }

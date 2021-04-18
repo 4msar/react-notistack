@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSnackbar } from '../../src'
+import { useSnackbar, icons } from '../../src'
 import { capitalise, isEmpty } from '../../src/helpers';
 import './style.scss';
 
@@ -19,6 +19,7 @@ function Example() {
         hide: 5000,
         autoHide: true,
         preventDuplicate: false,
+        // icon: <img src={"//msar.me/favicon.ico"} alt="Icon" />,
         anchorOrigin: {
             vertical: "bottom",
             horizontal: "right",

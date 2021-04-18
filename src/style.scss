@@ -1,4 +1,4 @@
-$snack-max-width: 350px !default;
+$snack-max-width: 320px !default;
 $snack-padding-x: 0.75rem !default;
 $snack-padding-y: 0.5rem !default;
 $snack-font-size: 0.875rem !default;
@@ -114,6 +114,7 @@ $snack-header-background-color: rgba(#fff, 0.5) !default;
             border-top-right-radius: $internal-border-radius;
 
             svg,
+            & > img,
             img.icon {
                 width: 20px;
                 height: 20px;
@@ -191,6 +192,28 @@ $snack-header-background-color: rgba(#fff, 0.5) !default;
             svg {
                 color: #ff9800;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .__snackbar_container {
+        &.anchorOriginTopCenter,
+        &.anchorOriginBottomCenter,
+        &.anchorOriginTopRight,
+        &.anchorOriginBottomRight,
+        &.anchorOriginTopLeft,
+        &.anchorOriginBottomLeft {
+            bottom: 5px;
+            right: unset;
+            top: unset;
+            left: unset;
+            width: auto;
+            margin: 0 10px;
+        }
+        .snack {
+            min-width: 280px;
+            width: auto;
         }
     }
 }

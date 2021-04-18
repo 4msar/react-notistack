@@ -78,6 +78,9 @@ Demo [here](http://msar.me/react-notistack/example/dist/)
 ### API
 Will be added soon.
 
+### To Do
+- Further improvement
+
 ### Credits
 This snackbar idea is comes from [Notistack](https://iamhosseindhv.com/notistack) by Hossein Dehnokhalaji which is depend on material-ui.  
 And the design of snackbar/toastr catched from bootstrap.

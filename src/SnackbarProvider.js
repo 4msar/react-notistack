@@ -71,8 +71,14 @@ class SnackbarProvider extends Component {
                 const snacks = [...state.snacks]
                 snacks.pop()
                 return {
-                    snacks: [snack].concat(snacks)
+                    snacks: snacks
                 }
+            }, () => {
+                this.setState(newState => ({
+                    snacks: [snack].concat(newState.snacks)
+                }))
+                setTimeout(() => {
+                }, 300);
             })
         } else {
             this.setState(state => ({

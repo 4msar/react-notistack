@@ -12,13 +12,13 @@ function SnackbarItem({ snack, onClose }) {
         open,
         onClick,
         variant,
+        icon,
         subTitle,
         body,
         message,
         autoHideDuration,
         template
     } = snack;
-
     const handleClose = useCallback(() => {
         toggleShow(false);
         setTimeout(() => {
@@ -39,15 +39,14 @@ function SnackbarItem({ snack, onClose }) {
         setTimeout(() => {
             toggleShow(open)
         }, 300);
-    }, [open, snack])
 
-    useEffect(() => {
         if (autoHideDuration > 0) {
             setTimer(new Timer(() => {
                 handleClose()
             }, autoHideDuration));
         }
-    }, [autoHideDuration, handleClose])
+        return () => toggleShow(false)
+    }, [open, snack])
 
     const Icon = () => icons[variant] ?? <img src={"/favicon.ico"} className="icon" alt="Icon" />;
 
@@ -59,7 +58,7 @@ function SnackbarItem({ snack, onClose }) {
     const defaultTemplate = (
         <>
             <div className="snack-header">
-                <Icon />
+                {icon ? icon : <Icon />}
                 <strong>{message}</strong>
                 {subTitle && <small>{subTitle}</small>}
                 <button onClick={handleClose} type="button" className="close-btn" aria-label="Close">

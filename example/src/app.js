@@ -4,7 +4,7 @@ import SnackbarProvider from '../../src/SnackbarProvider'
 import Example from './Example'
 
 ReactDOM.render(
-    <SnackbarProvider maxSnack={5} anchorOrigin={{
+    <SnackbarProvider maxSnack={2} anchorOrigin={{
         vertical: 'bottom',
         horizontal: 'right',
     }}>

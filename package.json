@@ -22,8 +22,8 @@
   "author": "Saiful Alam",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.0",
+    "react-dom": "^18.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",

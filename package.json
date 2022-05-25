@@ -1,6 +1,6 @@
 {
   "name": "react-notistack",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "description": "A beautiful standalone snackbar for react",
   "main": "dist/index.js",
   "scripts": {
